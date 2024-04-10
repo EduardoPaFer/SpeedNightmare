@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerDifficulties : MonoBehaviour
+public class ControllerDifficulties : CharacterSpawner
 {
     public float moveSpeed = 20f;
     public float jumpForce = 40f;
@@ -13,6 +13,7 @@ public class ControllerDifficulties : MonoBehaviour
     public float wallCheckDistance = 1f;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
+    public Camera mainCam;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -23,6 +24,7 @@ public class ControllerDifficulties : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
+        //mainCam.orthographicSize = 2;
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class ControllerDifficulties : MonoBehaviour
         RaycastHit2D wall2 = Physics2D.Raycast(groundCheck.position, Vector2.left, wallCheckDistance, wallLayer);
         isNextToWall = wall1.collider != null;
         isNextToWall = wall2.collider != null;
+        
         // Horizontal movement
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
@@ -59,10 +62,14 @@ public class ControllerDifficulties : MonoBehaviour
             rb.gravityScale = 0.2f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                //if(facingRight)
+                //{
+
+                //}
                 gravity = 10;
                 rb.velocity = new Vector2(rb.velocity.x, wallJumpForce);
                 moveSpeed = 20f;
-                jumpForce = 40f;
+                jumpForce = 60f;
                 wallJumpForce = 20f;
             }
 
@@ -72,6 +79,7 @@ public class ControllerDifficulties : MonoBehaviour
             moveSpeed = 20f;
             rb.gravityScale = 10f;
         }
+        jumpForce = 40;
 
     }
 
@@ -79,6 +87,23 @@ public class ControllerDifficulties : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (GameObject.FindGameObjectWithTag("KillSwitch"))
+        {
+            isAlive = false;
+            Debug.Log("Died");
+            Destroy(gameObject);
+        }
+        if (GameObject.FindGameObjectWithTag("CheckPoint"))
+        {
+            GameObject checkPoint;
+            Debug.Log("Got a checkpoint");
+            checkPoint = GameObject.FindGameObjectWithTag("CheckPoint");
+            spawn = checkPoint.transform;
+        }
     }
 
 }
