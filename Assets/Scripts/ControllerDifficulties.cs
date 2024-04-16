@@ -13,7 +13,6 @@ public class ControllerDifficulties : CharacterSpawner
     public float wallCheckDistance = 1f;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
-    public Camera mainCam;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -28,10 +27,7 @@ public class ControllerDifficulties : CharacterSpawner
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
-        //mainCam.orthographicSize = 2;
-
         animator = GetComponent<Animator>();
-
     }
 
     private void Update()
@@ -41,10 +37,12 @@ public class ControllerDifficulties : CharacterSpawner
         isGrounded = hit.collider != null;
 
         // Check if the player is next to a wall
-        RaycastHit2D wall1 = Physics2D.Raycast(groundCheck.position, Vector2.right, wallCheckDistance, wallLayer);
-        RaycastHit2D wall2 = Physics2D.Raycast(groundCheck.position, Vector2.left, wallCheckDistance, wallLayer);
-        isNextToWall = wall1.collider != null;
-        isNextToWall = wall2.collider != null;
+        RaycastHit2D WallCollision = Physics2D.Raycast(groundCheck.position, Vector2.right, wallCheckDistance, wallLayer);
+        if(WallCollision.collider == null)
+        {
+            WallCollision = Physics2D.Raycast(groundCheck.position, Vector2.left, wallCheckDistance, wallLayer);
+        }
+
         
         // Horizontal movement
         float moveInput = Input.GetAxisRaw("Horizontal");
@@ -62,26 +60,24 @@ public class ControllerDifficulties : CharacterSpawner
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
         }
-        if (isNextToWall)
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(WallCollision.collider != null)
+            {
+                rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
+
+            }
             Debug.Log("isWall");
             moveSpeed = 2f;
             rb.gravityScale = 0.2f;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                //if(facingRight)
-                //{
-
-                //}
-                gravity = 10;
-                rb.velocity = new Vector2(rb.velocity.x, wallJumpForce);
-                moveSpeed = 20f;
-                jumpForce = 60f;
-                wallJumpForce = 20f;
-            }
-
-        }
-        else
+            
+                
+                // gravity = 10;
+                // moveSpeed = 20f;
+                // jumpForce = 60f;
+                // wallJumpForce = 20f;
+        }else
         {
             moveSpeed = 20f;
             rb.gravityScale = 10f;
@@ -94,9 +90,6 @@ public class ControllerDifficulties : CharacterSpawner
             animator.SetBool("IsMoving", true);
 
         }else animator.SetBool("IsMoving", false);
-
-        //Check if the character is jumping
-        animator.SetBool("IsGrounded", isGrounded);
 
 
     }
