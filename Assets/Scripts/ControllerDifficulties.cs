@@ -19,10 +19,21 @@ public class ControllerDifficulties : CharacterSpawner
     private bool isNextToWall;
     private bool facingRight = true;
 
+    [Header("Animacion")]
+    private Animator animator;
+    bool isMoving;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
+<<<<<<< HEAD
+=======
+        //mainCam.orthographicSize = 2;
+
+        animator = GetComponent<Animator>();
+
+>>>>>>> ccd6bc9af5d71e43022e0b5c0966f4b547997508
     }
 
     private void Update()
@@ -81,6 +92,14 @@ if (Input.GetKeyDown(KeyCode.Space))
             rb.gravityScale = 10f;
         }
         jumpForce = 40;
+
+        //Check if the character is moving to change animations
+        if (moveInput > 0 || moveInput < 0)
+        {
+            animator.SetBool("IsMoving", true);
+
+        }else animator.SetBool("IsMoving", false);
+
 
     }
 
