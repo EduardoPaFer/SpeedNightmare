@@ -91,7 +91,12 @@ public class ControllerDifficulties : CharacterSpawner
 
         }else animator.SetBool("IsMoving", false);
 
+
     }
+
+
+
+
 
     private void Flip()
     {
