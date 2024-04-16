@@ -95,8 +95,18 @@ public class ControllerDifficulties : CharacterSpawner
 
         }else animator.SetBool("IsMoving", false);
 
+        
+
 
     }
+
+    private void FixedUpdate()
+    {
+        //Check if the character is jumping
+        animator.SetBool("IsGrounded", isGrounded);
+    }
+
+
 
     private void Flip()
     {
