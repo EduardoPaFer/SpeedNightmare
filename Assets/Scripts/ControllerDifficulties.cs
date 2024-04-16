@@ -54,29 +54,29 @@ public class ControllerDifficulties : CharacterSpawner
             Flip();
         }
 
-        // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
-        }
-
+        // Jumping & Wall mechanics
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
             if(WallCollision.collider != null)
             {
-                rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
-
+                Debug.Log("isWall");
+                moveSpeed = 2f;
+                rb.gravityScale = 0.2f;
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
+                }
+                ResetStats();
+                
             }
-            Debug.Log("isWall");
-            moveSpeed = 2f;
-            rb.gravityScale = 0.2f;
             
                 
-                // gravity = 10;
-                // moveSpeed = 20f;
-                // jumpForce = 60f;
-                // wallJumpForce = 20f;
+                
         }else
         {
             moveSpeed = 20f;
@@ -96,8 +96,18 @@ public class ControllerDifficulties : CharacterSpawner
 
 
 
-
-
+    IEnumerator ResetStats()
+    {
+        yield return new WaitForSeconds(2);
+        ResetFromGround();
+    }
+    private void ResetFromGround()
+    {
+        gravity = 10;
+        moveSpeed = 20f;
+        jumpForce = 60f;
+        wallJumpForce = 20f;
+    }
     private void Flip()
     {
         facingRight = !facingRight;
