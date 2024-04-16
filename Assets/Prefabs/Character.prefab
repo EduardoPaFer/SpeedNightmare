@@ -169,14 +169,13 @@ MonoBehaviour:
   gravity: 0
   groundCheck: {fileID: 8411232173398973183}
   groundCheckDistance: 1
-  wallCheckDistance: 2
+  wallCheckDistance: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  mainCam: {fileID: 6561296999156248310, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
 --- !u!61 &6700837693829770024
 BoxCollider2D:
   m_ObjectHideFlags: 0

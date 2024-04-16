@@ -27,13 +27,7 @@ public class ControllerDifficulties : CharacterSpawner
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
-<<<<<<< HEAD
-=======
-        //mainCam.orthographicSize = 2;
-
         animator = GetComponent<Animator>();
-
->>>>>>> ccd6bc9af5d71e43022e0b5c0966f4b547997508
     }
 
     private void Update()
@@ -67,13 +61,13 @@ public class ControllerDifficulties : CharacterSpawner
 
         }
 
-if (Input.GetKeyDown(KeyCode.Space))
-            {
-        if(WallCollision.collider != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
+            if(WallCollision.collider != null)
+            {
+                rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
 
-        }
+            }
             Debug.Log("isWall");
             moveSpeed = 2f;
             rb.gravityScale = 0.2f;
@@ -83,10 +77,7 @@ if (Input.GetKeyDown(KeyCode.Space))
                 // moveSpeed = 20f;
                 // jumpForce = 60f;
                 // wallJumpForce = 20f;
-            }
-    }
-        }
-        else
+        }else
         {
             moveSpeed = 20f;
             rb.gravityScale = 10f;
@@ -99,7 +90,6 @@ if (Input.GetKeyDown(KeyCode.Space))
             animator.SetBool("IsMoving", true);
 
         }else animator.SetBool("IsMoving", false);
-
 
     }
 
