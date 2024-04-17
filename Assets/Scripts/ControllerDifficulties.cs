@@ -6,7 +6,7 @@ public class ControllerDifficulties : CharacterSpawner
 {
     public float moveSpeed = 20f;
     public float jumpForce = 40f;
-    public float wallJumpForce = 20f;
+    public float wallJumpForce = 100f;
     public float gravity;
     public Transform groundCheck;
     public float groundCheckDistance = 1f;
@@ -55,34 +55,26 @@ public class ControllerDifficulties : CharacterSpawner
         }
 
         // Jumping & Wall mechanics
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            if (isGrounded)
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);                
+        }
+        
+        if(WallCollision.collider != null)
+        {
+            Debug.Log("isWall");
+            StatsForWall();
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            }
-            if(WallCollision.collider != null)
-            {
-                Debug.Log("isWall");
-                moveSpeed = 2f;
-                rb.gravityScale = 0.2f;
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                    rb.AddForce(WallCollision.normal * jumpForce, ForceMode2D.Impulse);
-                }
-                ResetStats();
-                
+                rb.AddForce(WallCollision.normal * wallJumpForce, ForceMode2D.Impulse);
             }
             
-                
-                
-        }else
-        {
-            moveSpeed = 20f;
-            rb.gravityScale = 10f;
         }
-        jumpForce = 40;
+        else
+        {
+            StatsForGround();
+        }
 
         //Check if the character is moving to change animations
         if (moveInput > 0 || moveInput < 0)
@@ -94,26 +86,30 @@ public class ControllerDifficulties : CharacterSpawner
 
     }
 
-
-
-    IEnumerator ResetStats()
+    private void StatsForWall()
     {
-        yield return new WaitForSeconds(2);
-        ResetFromGround();
+        rb.gravityScale = 5;
+        moveSpeed = 2f;
+        jumpForce = 20f;
     }
-    private void ResetFromGround()
+    private void StatsForGround()
     {
-        gravity = 10;
+        rb.gravityScale = 15;
         moveSpeed = 20f;
         jumpForce = 60f;
-        wallJumpForce = 20f;
     }
     private void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
-
+    private IEnumerator WaiterForGravity()
+    {
+        yield return new WaitForSeconds(1);
+        rb.gravityScale = 20;
+        yield return new WaitForEndOfFrame();
+        StatsForWall();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (GameObject.FindGameObjectWithTag("KillSwitch"))
