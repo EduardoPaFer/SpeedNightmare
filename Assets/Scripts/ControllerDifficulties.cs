@@ -83,6 +83,7 @@ public class ControllerDifficulties : CharacterSpawner
 
         }else animator.SetBool("IsMoving", false);
 
+        animator.SetBool("IsGrounded", isGrounded);
 
     }
 
@@ -96,7 +97,7 @@ public class ControllerDifficulties : CharacterSpawner
     {
         rb.gravityScale = 15;
         moveSpeed = 20f;
-        jumpForce = 60f;
+        jumpForce = 40f;
     }
     private void Flip()
     {
