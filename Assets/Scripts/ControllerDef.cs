@@ -2,59 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerDifficulties : MonoBehaviour
+public class ControllerDef : MonoBehaviour
 {
     public float GroundedMovementSpeed = 20f;
-    public float jumpForce = 40f;
+    public float jumpForce = 25f;
     public float wallJumpForce = 100f;
     public float WallGravityMultiplier;
     public float groundCheckDistance = 1f;
     public float wallCheckDistance = 1f;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
-
     private Rigidbody2D _rigidbody2D;
     private bool isGrounded;
-    private bool isNextToWall;
     private bool facingRight = true;
+
 
     [Header("Animacion")]
     private Animator animator;
-    bool isMoving;
 
-    private void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {        
-        // Check if the player is grounded using raycasting
+    // Update is called once per frame
+    void Update()
+    {
+        //Check if ground or wall
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = hit.collider != null;
 
-        // Check if the player is next to a wall
         RaycastHit2D WallCollision = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
         if(WallCollision.collider == null)
         {
             WallCollision = Physics2D.Raycast(transform.position, Vector2.left, wallCheckDistance, wallLayer);
         }
-
-        Debug.DrawRay(transform.position,  Vector3.right * wallCheckDistance, WallCollision.collider != null ? Color.green : Color.magenta, 0.1f);
-        Debug.DrawRay(transform.position,  Vector3.left * wallCheckDistance, WallCollision.collider != null ? Color.green : Color.magenta, 0.1f);
-
-        // Horizontal movement
+        
         float moveInput = Input.GetAxisRaw("Horizontal");
         _rigidbody2D.position += ((Vector2.right * moveInput * GroundedMovementSpeed) + Vector2.up * _rigidbody2D.velocity.y) * Time.deltaTime;
 
-        // Flip character if needed
         if ((moveInput > 0 && !facingRight) || (moveInput < 0 && facingRight))
         {
             Flip();
         }
 
-        // Jumping & Wall mechanics
+        Vector2 MoveDirectionL = Vector2.left;
+        Vector2 MoveDirectionR = Vector2.right;
+        if(WallCollision.collider != null)
+        {
+            Debug.DrawRay(transform.position,  MoveDirectionL * 2.0f, Color.green, 0.1f);
+            Debug.DrawRay(transform.position,  MoveDirectionR * 2.0f, Color.green, 0.1f);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position,  MoveDirectionL * 2.0f, Color.red, 0.1f);
+            Debug.DrawRay(transform.position,  MoveDirectionR * 2.0f, Color.red, 0.1f);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || WallCollision.collider != null))
         {
             Vector2 L_jumpDirection = Vector2.up;
@@ -62,48 +69,51 @@ public class ControllerDifficulties : MonoBehaviour
 
             if(WallCollision.collider != null)
             { 
+                _rigidbody2D.gravityScale = 30;
+                jumpForce = wallJumpForce;
+                StatsForWall();
                 L_jumpDirection += WallCollision.normal;
                 L_jumpDirection.Normalize();
-                jumpForce = wallJumpForce;
             }            
             Debug.DrawRay(transform.position,  L_jumpDirection * 10.0f, Color.red, 0.1f);
-             _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
         }
-        
-        //Check if the character is moving to change animations
+
         if (moveInput > 0 || moveInput < 0)
         {
             animator.SetBool("IsMoving", true);
-
-        }else animator.SetBool("IsMoving", false);
+        }else 
+        {
+            animator.SetBool("IsMoving", false);
+        }
 
         animator.SetBool("IsGrounded", isGrounded);
-
     }
-
-    private void StatsForWall()
-    {
-        _rigidbody2D.gravityScale = 5;
-        GroundedMovementSpeed = 2f;
-        jumpForce = 100f;
-    }
-    private void StatsForGround()
-    {
-        _rigidbody2D.gravityScale = 15;
-        GroundedMovementSpeed = 20f;
-        jumpForce = 40f;
-    }
+    
     private void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
-    private IEnumerator WaiterForGravity()
+    private void StatsForWall()
     {
-        yield return new WaitForSeconds(1);
-        _rigidbody2D.gravityScale = 20;
-        yield return new WaitForEndOfFrame();
-        StatsForWall();
+        Debug.Log("Wall");
+        _rigidbody2D.gravityScale = 5;
+        GroundedMovementSpeed = 2;
+        StartCoroutine(TimerStats());
+    }
+    IEnumerator TimerStats()
+    {
+        Debug.Log("Timer...");
+        yield return new WaitForSeconds(1); 
+        StatsForGround();
+    }
+    private void StatsForGround()
+    {
+        Debug.Log("Ground");
+        _rigidbody2D.gravityScale = 10;
+        GroundedMovementSpeed = 20f;
+        jumpForce = 25f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -118,7 +128,7 @@ public class ControllerDifficulties : MonoBehaviour
             GameObject checkPoint;
             Debug.Log("Got a checkpoint");
             checkPoint = GameObject.FindGameObjectWithTag("CheckPoint");
-//            spawn = checkPoint.transform;
+            //spawn = checkPoint.transform;
         }
     }
 
