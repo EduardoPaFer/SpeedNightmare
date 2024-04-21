@@ -15,8 +15,8 @@ public class ControllerDifficulties : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private bool isGrounded;
-    private bool isNextToWall;
     private bool facingRight = true;
+    private bool isNextToWall;
 
     [Header("Animacion")]
     private Animator animator;
@@ -93,17 +93,17 @@ public class ControllerDifficulties : MonoBehaviour
         GroundedMovementSpeed = 20f;
         jumpForce = 40f;
     }
-    private void Flip()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
     private IEnumerator WaiterForGravity()
     {
         yield return new WaitForSeconds(1);
         _rigidbody2D.gravityScale = 20;
         yield return new WaitForEndOfFrame();
         StatsForWall();
+    }
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

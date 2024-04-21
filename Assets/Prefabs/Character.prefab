@@ -43,11 +43,12 @@ GameObject:
   - component: {fileID: 4395539055025908025}
   - component: {fileID: 4805257477256384831}
   - component: {fileID: 7435001869691205171}
+  - component: {fileID: 1231829184789095075}
   - component: {fileID: 6700837693829770024}
   - component: {fileID: 1362268857380820684}
   m_Layer: 6
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1915022307
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b638a8d7a4238348a28d4f1a2342d29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -136,7 +137,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 20
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -155,19 +156,39 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5865614316298687481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa736f817fc08394a98880be5e546d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5865614316298687481}
-  spawn: {fileID: 2696659123774822248, guid: 2c2b8a40bf53a3948801b75587d243da, type: 3}
-  isAlive: 0
-  moveSpeed: 40
-  jumpForce: 40
+  GroundedMovementSpeed: 20
+  jumpForce: 4
+  wallJumpForce: 8
+  WallGravityMultiplier: 0
+  groundCheckDistance: 1
+  wallCheckDistance: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &1231829184789095075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865614316298687481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b9850f761bc0b4683a7c01ab560dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GroundedMovementSpeed: 20
+  jumpForce: 20
   wallJumpForce: 20
-  gravity: 0
-  groundCheck: {fileID: 8411232173398973183}
+  WallGravityMultiplier: 0
   groundCheckDistance: 1
   wallCheckDistance: 2
   groundLayer:

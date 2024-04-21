@@ -6,7 +6,7 @@ public class ControllerDef : MonoBehaviour
 {
     public float GroundedMovementSpeed = 20f;
     public float jumpForce = 25f;
-    public float wallJumpForce = 100f;
+    public float wallJumpForce = 20f;
     public float WallGravityMultiplier;
     public float groundCheckDistance = 1f;
     public float wallCheckDistance = 1f;
@@ -65,18 +65,23 @@ public class ControllerDef : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || WallCollision.collider != null))
         {
             Vector2 L_jumpDirection = Vector2.up;
-            float CurrentJumpForce = jumpForce;
+            float CurrentJumpForce = wallJumpForce;
 
             if(WallCollision.collider != null)
             { 
                 _rigidbody2D.gravityScale = 30;
-                jumpForce = wallJumpForce;
                 StatsForWall();
+                _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
+                StartCoroutine(TimerStats());
                 L_jumpDirection += WallCollision.normal;
                 L_jumpDirection.Normalize();
+                _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
             }            
+            else
+            {
+                _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
+            }
             Debug.DrawRay(transform.position,  L_jumpDirection * 10.0f, Color.red, 0.1f);
-            _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
         }
 
         if (moveInput > 0 || moveInput < 0)
@@ -100,12 +105,11 @@ public class ControllerDef : MonoBehaviour
         Debug.Log("Wall");
         _rigidbody2D.gravityScale = 5;
         GroundedMovementSpeed = 2;
-        StartCoroutine(TimerStats());
     }
     IEnumerator TimerStats()
     {
         Debug.Log("Timer...");
-        yield return new WaitForSeconds(1); 
+        yield return new WaitForEndOfFrame(); 
         StatsForGround();
     }
     private void StatsForGround()
