@@ -1,31 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject player;
+    public SpriteRenderer playerSprite;
     public Transform spawn;
     public bool isAlive;
+
     void Start()
     {
-        Instantiate(player, spawn);
+        playerSprite = GetComponent<SpriteRenderer>();
         isAlive = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isAlive == false)
-        {
-            Respawn();
-        }
+
     }
-    public void Respawn()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+//        if (GameObject.FindGameObjectWithTag("KillSwitch"))
+  //      {
+    //        isAlive = false;
+      //      Debug.Log("Died");
+        //    playerSprite.enabled = false;
+          //  StartCoroutine(RespawnDelay());
+        //}
+    }
+    IEnumerator RespawnDelay()
     {
         Debug.Log("Respawning...");
-        Instantiate(player, spawn);
-        isAlive = true;
+        yield return new WaitForSecondsRealtime(1);
+        gameObject.transform.position = spawn.transform.position;
+        playerSprite.enabled = true;
     }
 }
+

@@ -7,6 +7,7 @@ TagManager:
   - jumpCollision
   - CheckPoint
   - KillSwitch
+  - Character
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Game
   - Ground
   - Wall
-  - 
+  - GroundBreak
   - 
   - 
   - 

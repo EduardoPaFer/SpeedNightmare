@@ -119,21 +119,6 @@ public class ControllerDef : MonoBehaviour
         GroundedMovementSpeed = 20f;
         jumpForce = 25f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (GameObject.FindGameObjectWithTag("KillSwitch"))
-        {
-            //isAlive = false;
-            Debug.Log("Died");
-            Destroy(gameObject);
-        }
-        if (GameObject.FindGameObjectWithTag("CheckPoint"))
-        {
-            GameObject checkPoint;
-            Debug.Log("Got a checkpoint");
-            checkPoint = GameObject.FindGameObjectWithTag("CheckPoint");
-            //spawn = checkPoint.transform;
-        }
-    }
+
 
 }
