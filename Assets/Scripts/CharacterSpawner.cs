@@ -25,13 +25,13 @@ public class CharacterSpawner : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-//        if (GameObject.FindGameObjectWithTag("KillSwitch"))
-  //      {
-    //        isAlive = false;
-      //      Debug.Log("Died");
-        //    playerSprite.enabled = false;
-          //  StartCoroutine(RespawnDelay());
-        //}
+        if (GameObject.FindGameObjectWithTag("KillSwitch"))
+        {
+            isAlive = false;
+            Debug.Log("Died");
+            playerSprite.enabled = false;
+            StartCoroutine(RespawnDelay());
+        }
     }
     IEnumerator RespawnDelay()
     {
