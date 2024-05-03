@@ -6,17 +6,33 @@ public class VentiladorScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody2D catRb2D;
-    void Start()
+    float realGravity = 10f;
+    float fuerzaVentilador = -5f;
+    bool ventilando = false;
+
+    void Update ()
     {
+        if (ventilando)
+        {
+            catRb2D.gravityScale = fuerzaVentilador;
+        }
+        if (!ventilando) 
+        {
+            catRb2D.gravityScale = realGravity;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D (Collider2D collider)
     {
-            //catRb2D.AddForce(airDirection * airForce, ForceMode2D.Force);               CAMBIAR GRAVEDAD CUANDO ENTRA EN TRIGGER :))))
+        if (collider.tag == "Ventilador")
+        {
+            ventilando = true;
+        }
     }
-
-    private void OnTriggerEnter2D (Collider2D collider)
-    {
+    private void OnTriggerExit2D (Collider2D collider) {
+        if(collider.tag == "Ventilador") {
+            ventilando = false;
+        }
     }
+    
 }

@@ -14,6 +14,6 @@ public class HelicesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rigidbody2D.rotation = _rigidbody2D.rotation - 5f;
+        _rigidbody2D.rotation = _rigidbody2D.rotation + 0.2f;
     }
 }

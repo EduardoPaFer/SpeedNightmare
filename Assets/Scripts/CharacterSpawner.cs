@@ -25,7 +25,7 @@ public class CharacterSpawner : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GameObject.FindGameObjectWithTag("KillSwitch"))
+        if (collision.tag == "KillSwitch")
         {
             isAlive = false;
             Debug.Log("Died");
@@ -35,10 +35,17 @@ public class CharacterSpawner : MonoBehaviour
     }
     IEnumerator RespawnDelay()
     {
-        Debug.Log("Respawning...");
-        yield return new WaitForSecondsRealtime(1);
-        gameObject.transform.position = spawn.transform.position;
-        playerSprite.enabled = true;
+        if(isAlive)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        else
+        {
+            Debug.Log("Respawning...");
+            yield return new WaitForSecondsRealtime(1);
+            gameObject.transform.position = spawn.transform.position;
+            playerSprite.enabled = true;
+        }
     }
 }
 

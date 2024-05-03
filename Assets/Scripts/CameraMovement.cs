@@ -8,7 +8,6 @@ public class CameraMovement : MonoBehaviour
     public Vector3 offset = new Vector3 (0f, 0f, -10f);
     public float delayMovement = 0.25f;
     public Vector3 speed = Vector3.zero;
-
     public   Transform target;
 
     // Start is called before the first frame update
