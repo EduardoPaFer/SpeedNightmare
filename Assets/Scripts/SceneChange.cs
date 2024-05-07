@@ -8,12 +8,14 @@ public class SceneChange : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        int currentScene = 0;
+
         if (collision.gameObject.tag == "Character")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(currentScene + 1);
         }
     }
 
-
+    
 
 }
