@@ -62,7 +62,7 @@ public class ControllerDef : MonoBehaviour
             Debug.DrawRay(transform.position,  MoveDirectionR * 2.0f, Color.red, 0.1f);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || WallCollision.collider != null))
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && (isGrounded || WallCollision.collider != null))
         {
             Vector2 L_jumpDirection = Vector2.up;
             float CurrentJumpForce = wallJumpForce;
