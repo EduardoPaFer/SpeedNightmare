@@ -9,11 +9,12 @@ TagManager:
   - KillSwitch
   - Character
   - Ventilador
+  - "Telara\xF1a"
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Character
   - Water
   - UI
   - Game

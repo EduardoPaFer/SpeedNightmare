@@ -15,7 +15,7 @@ public class ControllerDef : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private bool isGrounded;
     private bool facingRight = true;
-
+    private bool inTelaraña = false;
 
     [Header("Animacion")]
     private Animator animator;
@@ -93,6 +93,15 @@ public class ControllerDef : MonoBehaviour
         }
 
         animator.SetBool("IsGrounded", isGrounded);
+
+        if (inTelaraña)
+        {
+            GroundedMovementSpeed = 10f;
+        }
+        else
+        {
+            GroundedMovementSpeed = 20f;
+        }
     }
     
     private void Flip()
@@ -119,6 +128,19 @@ public class ControllerDef : MonoBehaviour
         GroundedMovementSpeed = 20f;
         jumpForce = 25f;
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Telaraña")
+        {
+            inTelaraña = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Telaraña")
+        {
+            inTelaraña = false;
+        }
+    }
 
 }
