@@ -5,6 +5,7 @@ using UnityEngine;
 public class HelicesScript : MonoBehaviour
 {
     Rigidbody2D _rigidbody2D;
+    public float rotationValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class HelicesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rigidbody2D.rotation = _rigidbody2D.rotation + 0.2f;
+        _rigidbody2D.rotation = _rigidbody2D.rotation + rotationValue;
     }
 }
