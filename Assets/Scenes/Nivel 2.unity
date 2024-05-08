@@ -1621,8 +1621,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 130339541
-  m_SortingLayer: 1
+  m_SortingLayerID: 1619131419
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d120017a00d10f14d87619c267c4f6ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5716,7 +5716,7 @@ PrefabInstance:
     - target: {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
       propertyPath: catRb2D
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1729765557}
     - target: {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -12640,7 +12640,7 @@ PrefabInstance:
     - target: {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
       propertyPath: catRb2D
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1729765557}
     - target: {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -13518,6 +13518,11 @@ PrefabInstance:
 --- !u!4 &1729765552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8411232173398973183, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+  m_PrefabInstance: {fileID: 1729765551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1729765557 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4805257477256384831, guid: 7407741c00ff22d44bf9836294309275, type: 3}
   m_PrefabInstance: {fileID: 1729765551}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739175045
