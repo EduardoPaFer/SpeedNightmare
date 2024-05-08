@@ -5715,7 +5715,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 27.34485
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8327093877835731831, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
     m_AddedGameObjects: []
@@ -12644,7 +12645,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 30.202702
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512976091749624606, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8327093877835731831, guid: 3f97437beee95194aa24d036f7cb8331, type: 3}
     m_AddedGameObjects: []
@@ -15753,7 +15755,7 @@ GameObject:
   - component: {fileID: 1983385545}
   m_Layer: 0
   m_Name: Pinchos_Grupo4 (1)
-  m_TagString: Untagged
+  m_TagString: KillSwitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15802,7 +15804,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
