@@ -367,6 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66f0615972b96340bacbba8ae90156b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  derecha: 0
+  izquierda: 0
+  abajo: 0
+  arriba: 0
   flecha: {fileID: 566704993063289361, guid: df462c0992f4d3540a6adcb2d183190e, type: 3}
 --- !u!212 &238534704
 SpriteRenderer:
