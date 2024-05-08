@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+
+    
+
     void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -25,15 +28,21 @@ public class SceneChange : MonoBehaviour
         {
 
         }
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int currentScene = 0;
 
-        if (collision.gameObject.tag == "Character")
-        {
-            SceneManager.LoadScene(currentScene + 1);
-        }
+         if (collision.gameObject.tag == "Character" && SceneManager.GetActiveScene().buildIndex < 5)
+         {
+
+             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+         }
+
+        
+
     }
 
     
