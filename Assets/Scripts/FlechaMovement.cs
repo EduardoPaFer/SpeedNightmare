@@ -33,7 +33,7 @@ public class FlechaMovement : FlechasScript
             direccionFlecha = Vector2.right;
         }
 
-        flechaRb2D.position += direccionFlecha * velocidad * 0.002f;
+        flechaRb2D.position += direccionFlecha * velocidad * Time.deltaTime;
         StartCoroutine(Delete());
     }
     IEnumerator Delete()
