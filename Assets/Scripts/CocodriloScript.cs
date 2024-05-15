@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class CocodriloScript : MonoBehaviour
 {
+    Animator animator;
 
+    
     private enum CocodriloState
     {
         Wait,
@@ -24,6 +26,7 @@ public class CocodriloScript : MonoBehaviour
     {
         cocodriloCollider.SetActive(false);
         CambiarState(CocodriloState.Wait);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class CocodriloScript : MonoBehaviour
         if(playerClose)
         {
             CambiarState(CocodriloState.Attacking);
+            
         }
         else
         {
@@ -70,14 +74,17 @@ public class CocodriloScript : MonoBehaviour
     }
     IEnumerator CocodriloTimer()
     {
+        animator.SetBool("IsAttacking",false);
         yield return new WaitForSecondsRealtime(3);
         StartCoroutine(MordidaCocodrilo());
     }
     IEnumerator MordidaCocodrilo()
     {
         cocodriloCollider.SetActive(true);
+        animator.SetBool("IsAttacking", true);
         yield return new WaitForSecondsRealtime(2);
         cocodriloCollider.SetActive(false);
+        Debug.Log("llegue");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
