@@ -14,7 +14,7 @@ public class CocodriloScript : MonoBehaviour
 
     private CocodriloState actualState = CocodriloState.Wait;
     
-    public BoxCollider2D cocodriloCollider;
+    public GameObject cocodriloCollider;
     public CircleCollider2D cocodriloDetector;
 
     private bool playerClose = false;
@@ -22,7 +22,8 @@ public class CocodriloScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cocodriloCollider.enabled = false;
+        cocodriloCollider.SetActive(false);
+        CambiarState(CocodriloState.Wait);
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class CocodriloScript : MonoBehaviour
         {
             CambiarState(CocodriloState.Wait);
         }
-        StartCoroutine(CocodriloTimer());
+        
     }
 
 
@@ -47,9 +48,9 @@ public class CocodriloScript : MonoBehaviour
         {
             return;
         }
-        BorrarState();
         actualState = nuevoState;
         ElegirState();
+        Debug.Log("CambiadoState");
     }
 
     private void ElegirState()
@@ -57,69 +58,42 @@ public class CocodriloScript : MonoBehaviour
         switch (actualState)
         {
             case CocodriloState.Attacking:
+                Debug.Log("ElegirState: Attacking");
                 StartCoroutine(CocodriloTimer());
                 break;
             case CocodriloState.Wait:
+                Debug.Log("ElegirState: Wait");
                 breakAtack = true;
-                break;
-        }
-    }
-    private void BorrarState()
-    {
-        switch (actualState)
-        {
-            case CocodriloState.Attacking:
-                breakAtack = true;
-                break;
-                case CocodriloState.Wait:
-                breakAtack = false; 
+                cocodriloCollider.SetActive(false);
                 break;
         }
     }
     IEnumerator CocodriloTimer()
-    {        
-        yield return new WaitForSecondsRealtime(1);
-        if (breakAtack)
-        {
-            
-        }
-        else
-        {
-            cocodriloCollider.enabled = true;
-            StartCoroutine(CocodriloCooldown());
-        }
-    }
-    IEnumerator CocodriloCooldown()
     {
         yield return new WaitForSecondsRealtime(3);
-        if(breakAtack)
-        {
-            
-        }
-        else
-        {
-            cocodriloCollider.enabled = false;
-            StartCoroutine(CocodriloCooldowns());
-        }
+        StartCoroutine(MordidaCocodrilo());
     }
-    IEnumerator CocodriloCooldowns()
+    IEnumerator MordidaCocodrilo()
     {
+        cocodriloCollider.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
-        if (breakAtack)
-        {
-
-        }
-        else
-        {
-            StartCoroutine(CocodriloTimer());
-        }
+        cocodriloCollider.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Character")
         {
             playerClose = true;
+            Debug.Log("InRange");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Character")
+        {
+            playerClose = false;
+            Debug.Log("OutOfRange");
         }
     }
 }
