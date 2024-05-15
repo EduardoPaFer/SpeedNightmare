@@ -120,6 +120,11 @@ public class ControllerDifficulties : MonoBehaviour
             checkPoint = GameObject.FindGameObjectWithTag("CheckPoint");
 //            spawn = checkPoint.transform;
         }
+        if (GameObject.FindGameObjectWithTag("Hole"))
+        {
+            animator.SetBool("IsFalling", true);
+
+        }
     }
 
 }

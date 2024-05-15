@@ -8,7 +8,7 @@ public class ControllerDef : MonoBehaviour
     public float jumpForce = 25f;
     public float wallJumpForce = 20f;
     public float WallGravityMultiplier;
-    public float groundCheckDistance = 1f;
+    public float groundCheckDistance = 10f;
     public float wallCheckDistance = 1f;
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -34,6 +34,8 @@ public class ControllerDef : MonoBehaviour
         //Check if ground or wall
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = hit.collider != null;
+
+        animator.SetBool("IsGrounded", isGrounded);
 
         RaycastHit2D WallCollision = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
         if(WallCollision.collider == null)
@@ -69,6 +71,12 @@ public class ControllerDef : MonoBehaviour
 
             if(WallCollision.collider != null)
             { 
+                if (!isGrounded)
+                {
+                    animator.SetBool("IsWalled", true);
+
+                }else animator.SetBool("IsWalled", false);
+
                 _rigidbody2D.gravityScale = 30;
                 StatsForWall();
                 _rigidbody2D.AddForce(L_jumpDirection * CurrentJumpForce, ForceMode2D.Impulse);
@@ -92,7 +100,8 @@ public class ControllerDef : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
 
-        animator.SetBool("IsGrounded", isGrounded);
+        
+        
 
         if (inTelaraña)
         {
@@ -134,12 +143,21 @@ public class ControllerDef : MonoBehaviour
         {
             inTelaraña = true;
         }
+        if (collision.tag == "Hole")
+        {
+            animator.SetBool("IsFalling", true);
+            
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Telaraña")
         {
             inTelaraña = false;
+        }
+        if(collision.tag == "Hole")
+        {
+            animator.SetBool("IsFalling", false);
         }
     }
 
