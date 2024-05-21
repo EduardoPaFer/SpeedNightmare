@@ -15032,6 +15032,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1038565467574157108, guid: c17025c6ba593d54ea60583e77a5f839, type: 3}
   m_PrefabInstance: {fileID: 315101980}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2023553196
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 52.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634641680028810353, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279340317167425983, guid: 02523f9738d04a947831ac76262278df, type: 3}
+      propertyPath: m_Name
+      value: Dispensador
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02523f9738d04a947831ac76262278df, type: 3}
 --- !u!4 &2039296330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6570103312867349616, guid: ba98143511c04f04681386f367fcae18, type: 3}
@@ -15682,3 +15739,4 @@ SceneRoots:
   - {fileID: 1538006323}
   - {fileID: 320982168}
   - {fileID: 1194676172}
+  - {fileID: 2023553196}
