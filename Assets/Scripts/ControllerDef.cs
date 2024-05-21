@@ -57,6 +57,7 @@ public class ControllerDef : MonoBehaviour
         {
             Debug.DrawRay(transform.position,  MoveDirectionL * 2.0f, Color.green, 0.1f);
             Debug.DrawRay(transform.position,  MoveDirectionR * 2.0f, Color.green, 0.1f);
+            
         }
         else
         {
@@ -70,12 +71,12 @@ public class ControllerDef : MonoBehaviour
             float CurrentJumpForce = wallJumpForce;
 
             if(WallCollision.collider != null)
-            { 
+            {
                 if (!isGrounded)
                 {
                     animator.SetBool("IsWalled", true);
 
-                }else animator.SetBool("IsWalled", false);
+                }
 
                 _rigidbody2D.gravityScale = 30;
                 StatsForWall();
@@ -91,6 +92,9 @@ public class ControllerDef : MonoBehaviour
             }
             Debug.DrawRay(transform.position,  L_jumpDirection * 10.0f, Color.red, 0.1f);
         }
+
+        animator.SetBool("IsWalled", false);
+
 
         if (moveInput > 0 || moveInput < 0)
         {
