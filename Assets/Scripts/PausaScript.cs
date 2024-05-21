@@ -5,37 +5,28 @@ using UnityEngine;
 
 public class PausaScript : MonoBehaviour
 {
-    Animator animator;
     public CharacterSpawner spawner;
+    public ControllerDef characterController;
     
     private enum GameState
     {
         Pause,
-        Dead,
         Running
     }
 
     private GameState actualState = GameState.Running;
 
-    bool playerDead;
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {        
         CambiarState(GameState.Running);
-        animator = GetComponent<Animator>();
+        characterController.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(!spawner.isAlive)
-        {
-            CambiarState(GameState.Dead);
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if(actualState == GameState.Running) 
                 CambiarState(GameState.Pause);
@@ -63,14 +54,12 @@ public class PausaScript : MonoBehaviour
         {
             case GameState.Running:
                 Time.timeScale = 1;
+                characterController.enabled = true;
                 break;
             case GameState.Pause:
                 Time.timeScale = 0;
+                characterController.enabled = false;
                 break;
-            case GameState.Dead:
-                Time.timeScale = 0.5f;
-                break;
-
         }
     }
 }

@@ -10,6 +10,7 @@ public class CharacterSpawner : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Transform spawn;
     public bool isAlive;
+    public ControllerDef controller;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             isAlive = false;
             Debug.Log("Died");
+            controller.enabled = false;
             playerSprite.enabled = false;
             StartCoroutine(RespawnDelay());
         }
@@ -43,6 +45,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             Debug.Log("Respawning...");
             yield return new WaitForSecondsRealtime(1);
+            controller.enabled = true;  
             gameObject.transform.position = spawn.transform.position;
             playerSprite.enabled = true;
         }

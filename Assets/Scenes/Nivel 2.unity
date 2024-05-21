@@ -28268,6 +28268,10 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 983870713}
+    - target: {fileID: 331951002909736213, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1729765562}
     - target: {fileID: 5865614316298687481, guid: 7407741c00ff22d44bf9836294309275, type: 3}
       propertyPath: m_Name
       value: Character
@@ -28327,6 +28331,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4805257477256384831, guid: 7407741c00ff22d44bf9836294309275, type: 3}
   m_PrefabInstance: {fileID: 1729765551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1729765562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1231829184789095075, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+  m_PrefabInstance: {fileID: 1729765551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b9850f761bc0b4683a7c01ab560dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1739175045
 GameObject:
   m_ObjectHideFlags: 0
