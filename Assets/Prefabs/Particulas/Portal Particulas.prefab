@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4918604869645653176}
   - component: {fileID: 2188230925667656065}
   m_Layer: 0
-  m_Name: Particulas Portal
+  m_Name: Portal Particulas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
