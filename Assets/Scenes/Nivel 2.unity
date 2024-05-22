@@ -305,6 +305,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1729765552}
+    - target: {fileID: 4830109769538836145, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1729765552}
     - target: {fileID: 6170274798231523099, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -4085,6 +4089,11 @@ Transform:
   - {fileID: 295084033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &482683240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272343138637460912, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 35039333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &484095217
 GameObject:
   m_ObjectHideFlags: 0
@@ -14113,6 +14122,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 983870713}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 482683240}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 1954452186}
     - target: {fileID: 5865614316298687481, guid: 7407741c00ff22d44bf9836294309275, type: 3}
       propertyPath: m_Name
       value: Character
@@ -16008,6 +16025,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7866745386127223121, guid: 51b451e7115c0504c8e0635fc99a8f8d, type: 3}
   m_PrefabInstance: {fileID: 1948226863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1954452186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165526730113396806, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 35039333}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1960579025
 GameObject:

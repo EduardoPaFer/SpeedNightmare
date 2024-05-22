@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: -667478281
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c97e34df5f6d4a499ec85ccc84c3cf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb4e0558b1ff32d408c66013065eca49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1425,6 +1425,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2165526730113396806, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519997288073915597, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: m_SortingOrder
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830109769538836145, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6170274798231523099, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1433,8 +1445,7 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 8.227416
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1001290821816917459, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1516,6 +1527,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1677828, y: 4.6419573}
   m_EdgeRadius: 0
+--- !u!1 &1943486442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165526730113396806, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 1889914051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950548995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1805,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.740522, y: 6.1370726}
   m_EdgeRadius: 0
+--- !u!1 &2075842312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272343138637460912, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 1889914051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108329060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1895,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984364799}
     m_Modifications:
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 2075842312}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 1943486442}
     - target: {fileID: 5865614316298687481, guid: 7407741c00ff22d44bf9836294309275, type: 3}
       propertyPath: m_Name
       value: Character

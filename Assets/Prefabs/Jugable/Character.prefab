@@ -224,8 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e4db2b515d1494198cf922732e8609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 331951002909736213}
   characterController: {fileID: 1231829184789095075}
+  menuPausa: {fileID: 0}
+  mouse: {fileID: 0}
 --- !u!114 &1259704349776053255
 MonoBehaviour:
   m_ObjectHideFlags: 0

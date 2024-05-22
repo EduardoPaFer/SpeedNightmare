@@ -893,8 +893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e4db2b515d1494198cf922732e8609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
   characterController: {fileID: 0}
+  menuPausa: {fileID: 0}
+  mouse: {fileID: 0}
 --- !u!1 &1277300429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1032,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1127132742}
+    - target: {fileID: 4830109769538836145, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1127132742}
     - target: {fileID: 6170274798231523099, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
       propertyPath: m_Name
       value: Main Camera (1)
@@ -1040,6 +1045,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+--- !u!1 &1309668018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165526730113396806, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 1309668017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1309668019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272343138637460912, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 1309668017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329128724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1735,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 1108838786}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 1309668019}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 1309668018}
     - target: {fileID: 5865614316298687481, guid: 7407741c00ff22d44bf9836294309275, type: 3}
       propertyPath: m_Name
       value: Character

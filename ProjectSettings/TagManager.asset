@@ -11,6 +11,7 @@ TagManager:
   - Ventilador
   - "Telara\xF1a"
   - Hole
+  - Boton
   layers:
   - Default
   - TransparentFX

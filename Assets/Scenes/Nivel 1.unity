@@ -904,6 +904,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 1141850883}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 2113624258}
+    - target: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 1853622641}
     - target: {fileID: 5865614316298687481, guid: 7407741c00ff22d44bf9836294309275, type: 3}
       propertyPath: m_Name
       value: Character
@@ -5975,6 +5983,11 @@ Transform:
   - {fileID: 385159800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1853622641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165526730113396806, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 8081411856614804208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1864933479
 GameObject:
   m_ObjectHideFlags: 0
@@ -6370,6 +6383,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1847843769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2113624258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272343138637460912, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+  m_PrefabInstance: {fileID: 8081411856614804208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2395578383552080963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6436,7 +6454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3500677161975164836, guid: d79aa62053ea44c448d0eee964fec332, type: 3}
       propertyPath: ShapeModule.radiusThickness
+<<<<<<< Updated upstream
       value: 1
+=======
+      value: 1.0000
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3500677161975164836, guid: d79aa62053ea44c448d0eee964fec332, type: 3}
       propertyPath: InitialModule.maxNumParticles
@@ -6750,7 +6772,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1001290821816917459, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+    - target: {fileID: 4097123897440985820, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830109769538836145, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1212117651}
@@ -6758,9 +6784,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6561296999156248310, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
-      propertyPath: orthographic size
-      value: 10
+    - target: {fileID: 7107186825073771008, guid: a5bb6581dcd24774d85a793502108aab, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

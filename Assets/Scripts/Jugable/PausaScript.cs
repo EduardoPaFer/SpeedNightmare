@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class PausaScript : MonoBehaviour
 {
-    public CharacterSpawner spawner;
     public ControllerDef characterController;
-    
+    public GameObject menuPausa, mouse;
     private enum GameState
     {
         Pause,
@@ -21,6 +20,9 @@ public class PausaScript : MonoBehaviour
     {        
         CambiarState(GameState.Running);
         characterController.enabled = true;
+        Cursor.visible = false;
+        menuPausa.SetActive(false);
+        mouse.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,10 +57,16 @@ public class PausaScript : MonoBehaviour
             case GameState.Running:
                 Time.timeScale = 1;
                 characterController.enabled = true;
+                Cursor.visible = false;
+                menuPausa.SetActive(false);
+                mouse.SetActive(false);
                 break;
             case GameState.Pause:
                 Time.timeScale = 0;
                 characterController.enabled = false;
+                Cursor.visible = true;
+                menuPausa.SetActive(true);
+                mouse.SetActive(true);
                 break;
         }
     }
