@@ -11,11 +11,13 @@ public class CharacterSpawner : MonoBehaviour
     public Transform spawn;
     public bool isAlive;
     public ControllerDef controller;
+    private AudioSource audioSource;
 
     void Start()
     {
         playerSprite = GetComponent<SpriteRenderer>();
         isAlive = true;
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -33,6 +35,9 @@ public class CharacterSpawner : MonoBehaviour
             controller.enabled = false;
             playerSprite.enabled = false;
             StartCoroutine(RespawnDelay());
+
+            audioSource.Play();
+
         }
     }
     IEnumerator RespawnDelay()

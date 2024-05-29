@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PausaScript : MonoBehaviour
 {
     public ControllerDef characterController;
-    public GameObject menuPausa, mouse;
+    public GameObject menuPausa, mouse, menuP;
+    public SceneManager sceneManager;
     private enum GameState
     {
         Pause,
@@ -23,6 +25,7 @@ public class PausaScript : MonoBehaviour
         Cursor.visible = false;
         menuPausa.SetActive(false);
         mouse.SetActive(false);
+        menuP.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,6 +41,8 @@ public class PausaScript : MonoBehaviour
         Debug.Log(Time.timeScale.ToString());
     }
 
+    
+    
 
     //States cambios
     private void CambiarState(GameState nuevoState)
@@ -50,6 +55,8 @@ public class PausaScript : MonoBehaviour
         ElegirState();
     }
 
+    
+
     private void ElegirState()
     {
         switch (actualState)
@@ -60,14 +67,27 @@ public class PausaScript : MonoBehaviour
                 Cursor.visible = false;
                 menuPausa.SetActive(false);
                 mouse.SetActive(false);
+                menuP.SetActive(false); 
+               
                 break;
+
             case GameState.Pause:
                 Time.timeScale = 0;
                 characterController.enabled = false;
                 Cursor.visible = true;
                 menuPausa.SetActive(true);
                 mouse.SetActive(true);
+                menuP.SetActive(true);  
+                
                 break;
         }
     }
+
+    public void Salir()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    
 }
