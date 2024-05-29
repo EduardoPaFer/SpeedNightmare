@@ -12274,6 +12274,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4472549805537950672, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1729765553}
+    - target: {fileID: 4472549805537950672, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Salir
+      objectReference: {fileID: 0}
     - target: {fileID: 7042072748825681685, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -14363,6 +14371,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8411232173398973183, guid: 7407741c00ff22d44bf9836294309275, type: 3}
   m_PrefabInstance: {fileID: 1729765551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1729765553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+  m_PrefabInstance: {fileID: 1729765551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4db2b515d1494198cf922732e8609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1729765557 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4805257477256384831, guid: 7407741c00ff22d44bf9836294309275, type: 3}

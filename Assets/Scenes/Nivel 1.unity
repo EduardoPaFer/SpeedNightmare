@@ -337,6 +337,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+--- !u!114 &54451153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5565057481464536658, guid: 7407741c00ff22d44bf9836294309275, type: 3}
+  m_PrefabInstance: {fileID: 54451152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4db2b515d1494198cf922732e8609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &72726096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2361,14 @@ PrefabInstance:
     - target: {fileID: 4288278053278417610, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 160.80002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472549805537950672, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 54451153}
+    - target: {fileID: 4472549805537950672, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Salir
       objectReference: {fileID: 0}
     - target: {fileID: 7042072748825681685, guid: eb663d4c2e62ee34c8f21239f2fe9800, type: 3}
       propertyPath: m_Name
