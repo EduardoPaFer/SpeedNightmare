@@ -6038,6 +6038,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1181754343}
     m_Modifications:
+    - target: {fileID: 1053831735376162195, guid: 8c41964768787804f8405438201f102f, type: 3}
+      propertyPath: cullingMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7041220743170452438, guid: 8c41964768787804f8405438201f102f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.959485
@@ -8967,6 +8971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4918604869645653176, guid: eb414acabce1ca24e964e8f82429171a, type: 3}
+      propertyPath: cullingMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8360908611091908255, guid: eb414acabce1ca24e964e8f82429171a, type: 3}
       propertyPath: m_Name
       value: Portal Particulas
@@ -9529,6 +9537,7 @@ Transform:
   - {fileID: 1503231477}
   - {fileID: 270914329}
   - {fileID: 669312724}
+  - {fileID: 1433839313}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198692768
@@ -11661,6 +11670,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1433839313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+  m_PrefabInstance: {fileID: 8622481604095364807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1435507617
 GameObject:
   m_ObjectHideFlags: 0
@@ -18106,6 +18120,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6570103312867349616, guid: ba98143511c04f04681386f367fcae18, type: 3}
   m_PrefabInstance: {fileID: 7365647644962878867}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8622481604095364807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1181754343}
+    m_Modifications:
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.700516
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.584162
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.032323
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030308673768843343, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521240934874910817, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
+      propertyPath: m_Name
+      value: Catarata Particulas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7ffd08a331261e49b88a4fea3e04f8a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
