@@ -142,6 +142,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   isAlive: 1
   controller: {fileID: 1231829184789095075}
+  sonido: {fileID: 8300000, guid: b5778b906ad97104c972c8fdc71a4c7e, type: 3}
 --- !u!50 &4805257477256384831
 Rigidbody2D:
   serializedVersion: 4
@@ -325,9 +326,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 245abff0574cb324589aae42f8347159, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b5778b906ad97104c972c8fdc71a4c7e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -426,6 +427,8 @@ MonoBehaviour:
   maullidos:
   - {fileID: 8300000, guid: 2c07b7e89bd93e14d93ee57c9b7340c1, type: 3}
   - {fileID: 8300000, guid: 2cb7e51b651817344a9183a539329e9b, type: 3}
+  - {fileID: 8300000, guid: edbb85fed4b13734b952e21e0956e57a, type: 3}
+  - {fileID: 8300000, guid: adad53d5df756804484ae55b38df47c2, type: 3}
 --- !u!1 &7240154753499017948
 GameObject:
   m_ObjectHideFlags: 0

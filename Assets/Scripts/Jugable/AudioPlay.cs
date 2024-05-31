@@ -19,5 +19,6 @@ public class AudioPlay : MonoBehaviour
     void Update()
     {
         audioSource.Play();
+        Destroy(audioSource);
     }
 }

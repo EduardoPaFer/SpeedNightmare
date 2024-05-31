@@ -12,7 +12,7 @@ public class CharacterSpawner : MonoBehaviour
     public bool isAlive;
     public ControllerDef controller;
     private AudioSource audioSource;
-
+    public AudioClip sonido;
     void Start()
     {
         playerSprite = GetComponent<SpriteRenderer>();
@@ -36,6 +36,7 @@ public class CharacterSpawner : MonoBehaviour
             playerSprite.enabled = false;
             StartCoroutine(RespawnDelay());
 
+            audioSource.clip = sonido;
             audioSource.Play();
 
         }
