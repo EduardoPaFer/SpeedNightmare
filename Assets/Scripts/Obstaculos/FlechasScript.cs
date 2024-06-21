@@ -5,21 +5,11 @@ using UnityEngine;
 
 public class FlechasScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     
-    public bool derecha;
-    public bool izquierda;
-    public bool abajo;
-    public bool arriba;
     public GameObject flecha;
     public Transform dispensador;
     private bool shooting = false;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!shooting)

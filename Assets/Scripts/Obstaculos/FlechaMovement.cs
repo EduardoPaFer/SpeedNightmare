@@ -16,22 +16,6 @@ public class FlechaMovement : FlechasScript
     void Update()
     {
         Vector2 direccionFlecha = Vector2.right;
-        if (arriba)
-        {
-            direccionFlecha = Vector2.up;
-        }
-        if (abajo)
-        {
-            direccionFlecha = Vector2.down;
-        }
-        if (izquierda)
-        {
-            direccionFlecha = Vector2.left;
-        }
-        if (derecha)
-        {
-            direccionFlecha = Vector2.right;
-        }
 
         flechaRb2D.position += direccionFlecha * velocidad * Time.deltaTime;
         StartCoroutine(Delete());

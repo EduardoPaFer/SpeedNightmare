@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlataformaCaida : MonoBehaviour
 {
-    // Start is called before the first frame update
     int life = 2;
     public BoxCollider2D Ground;
     public SpriteRenderer groundSprite;
@@ -14,8 +13,6 @@ public class PlataformaCaida : MonoBehaviour
     {
         groundSprite.color = Color.white;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (life == 0)

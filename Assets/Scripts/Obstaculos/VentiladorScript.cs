@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class VentiladorScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Rigidbody2D catRb2D;
     float realGravity = 10f;
-    float fuerzaVentilador = -5f;
-    bool ventilando = false;
+    float fanForce = -5f;
+    bool isFanSpinning = false;
 
     void Update ()
     {
-        if (ventilando)
+        if (isFanSpinning)
         {
-            catRb2D.gravityScale = fuerzaVentilador;
+            catRb2D.gravityScale = fanForce;
         }
-        if (!ventilando) 
+        if (!isFanSpinning) 
         {
             catRb2D.gravityScale = realGravity;
         }
@@ -26,13 +25,13 @@ public class VentiladorScript : MonoBehaviour
     {
         if (collider.tag == "Ventilador")
         {
-            ventilando = true;
+            isFanSpinning = true;
         }
     }
     private void OnTriggerExit2D (Collider2D collider) {
-        if(collider.tag == "Ventilador") {
-            ventilando = false;
+        if(collider.tag == "Ventilador") 
+        {
+            isFanSpinning = false;
         }
-    }
-    
+    }    
 }

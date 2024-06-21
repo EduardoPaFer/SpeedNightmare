@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-
-    
-
     void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -30,10 +27,6 @@ public class SceneChange : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SceneManager.LoadScene(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-
         }
 
 

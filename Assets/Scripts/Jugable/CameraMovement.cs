@@ -10,13 +10,6 @@ public class CameraMovement : MonoBehaviour
     public Vector3 speed = Vector3.zero;
     public   Transform target;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 characterPos = target.position + offset;

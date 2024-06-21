@@ -17,7 +17,7 @@ public class PausaScript : MonoBehaviour
 
     private GameState actualState = GameState.Running;
 
-    // Start is called before the first frame update
+
     void Start()
     {        
         CambiarState(GameState.Running);
@@ -28,7 +28,7 @@ public class PausaScript : MonoBehaviour
         menuP.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
